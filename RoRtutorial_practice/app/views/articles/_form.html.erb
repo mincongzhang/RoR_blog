@@ -1,0 +1,35 @@
+<%= form_for @article do |f| %>
+
+    <!--error message-->
+    <% if @article.errors.any? %>
+        <div id="error_explanation">
+        <h2>
+            <!--pluralize can get a num or string as a param, and output a string-->
+            <%= pluralize(@article.errors.count, "error") %> 
+            occur and this article cannot be saved.
+        </h2>
+        <ul>
+            <% @article.errors.full_messages.each do |msg| %>
+                 <li> <%=msg %> </li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>    
+
+    <!--article form-->
+    <p>
+        <%= f.label :title %>
+        <br>
+        <%= f.text_field :title %>
+    </p>
+
+    <p>
+        <%= f.label :text %>
+        <br>
+        <%= f.text_area :text %>
+    </p>
+
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>

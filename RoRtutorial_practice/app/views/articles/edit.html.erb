@@ -1,0 +1,46 @@
+<h1>Editing article</h1>
+<%= render 'form' %>
+<%= link_to 'back button', articles_path %>
+
+
+<!-- 
+<!--key point is the following "method: :patch", where PATCH request can update resource
+<!--:article is the Symbol of varible @article(they should have the same name)
+<%= form_for :article, url: article_path(@article), method: :patch do |f| %>
+
+    <!--error message
+    <% if @article.errors.any? %>
+        <div id="error_explanation">
+        <h2>
+            <!--pluralize can get a num or string as a param, and output a string
+            <%= pluralize(@article.errors.count, "error") %> 
+            occur and this article cannot be saved.
+        </h2>
+        <ul>
+            <% @article.errors.full_messages.each do |msg| %>
+                 <li> <%=msg %> </li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>    
+
+    <!--article form
+    <p>
+        <%= f.label :title %>
+        <br>
+        <%= f.text_field :title %>
+    </p>
+
+    <p>
+        <%= f.label :text %>
+        <br>
+        <%= f.text_area :text %>
+    </p>
+
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
+
+-->
+
