@@ -1,5 +1,15 @@
 class ArticlesController < ApplicationController
 
+    http_basic_authenticate_with name: "min", password: "cong", except: [:index, :show]
+
+    def index
+        @articles = Article.all
+    end
+
+    def show
+        @article = Article.find(params[:id])
+    end
+
     def new
         #without this @article will be a nil, 
         #error will occur when calling @article.errirs.any?
@@ -40,14 +50,6 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
         @article.destroy
         redirect_to articles_path
-    end
-
-    def show
-        @article = Article.find(params[:id])
-    end
-
-    def index
-        @articles = Article.all
     end
 
     private
